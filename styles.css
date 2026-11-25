@@ -1,0 +1,626 @@
+/*
+  Design tokens taken from the Figma styles.
+  Note: the app screens in Figma are 375px phone designs shown at 68.2% size,
+  so many values below look unusual (for example 16.37px = 24px × 0.682).
+*/
+:root {
+  --color-dark-blue: #363b64;
+  --color-grey: #adafbd;
+  --color-grey-light: #eaeaec;
+  --color-surface: #fbfbfb;
+  --color-white: #ffffff;
+  --color-page-bg: #f8f5ff; /* light lavender, approximated from the Figma canvas */
+
+  --gradient-purple: linear-gradient(122.46deg, #c69dff 0%, #4f76ff 100%);
+  --gradient-orange: linear-gradient(122.46deg, #e85442 0%, #ffc500 100%);
+  --gradient-sunset: linear-gradient(159.65deg, #fdc830 3.5%, #f37335 100%);
+
+  --shadow-soft: 0 5.46px 16.37px 1.36px rgba(54, 59, 100, 0.08);
+  --shadow-sheet: 0 -1.36px 62.74px 0 rgba(146, 146, 146, 0.16);
+
+  --font-main: "Inter", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  color: var(--color-dark-blue);
+  background-color: var(--color-page-bg);
+  letter-spacing: 0.01em;
+}
+
+/* ---------- Page layout ---------- */
+
+.cover {
+  display: grid;
+  grid-template-columns: 476px 1fr;
+  min-height: 720px;
+  overflow: hidden; /* the tilted screens are cut off at the page edges, like in the design */
+}
+
+.intro {
+  position: relative;
+  z-index: 1; /* keep the text above the screens where they touch */
+  padding: 79px 0 0 64px;
+}
+
+.intro__title {
+  margin: 0;
+  font-size: clamp(2.5rem, 12vw, 57.73px);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.intro__description {
+  max-width: 410px;
+  margin: 14px 0 0;
+  font-size: clamp(1.125rem, 5.5vw, 25.26px);
+  line-height: 1.5;
+  opacity: 0.6;
+}
+
+.showcase {
+  position: relative;
+  height: 720px;
+  margin-left: -8px; /* the screens start 8px before the text column ends */
+}
+
+/* Small screens: text on top, screen previews below */
+@media (max-width: 1099px) {
+  .cover {
+    grid-template-columns: 1fr;
+  }
+
+  .intro {
+    padding: 40px 16px 0;
+  }
+
+  .showcase {
+    height: 640px;
+    margin: 24px 0 0;
+  }
+}
+
+/* ---------- Screen frame ---------- */
+
+.screen {
+  position: absolute;
+  width: 255.75px;
+  height: 553.79px;
+  overflow: hidden;
+  border-radius: 10.91px;
+  background-color: rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(54.56px);
+  box-shadow: inset 0 0 0 4.09px var(--color-white); /* white border on the inside */
+  transform: rotate(-10deg);
+}
+
+.screen--flat {
+  border-radius: 6.82px;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+/* Position of each screen in the 812 × 720 showcase area */
+.showcase__screen--detail-a { left: 340.99px; top: -93px; }
+.showcase__screen--detail-b { left: 158.41px; top: 595.7px; }
+.showcase__screen--home-a   { left: 54.43px;  top: 6px; }
+.showcase__screen--home-b   { left: 756.64px; top: 540.08px; }
+.showcase__screen--pin-a    { left: 652.66px; top: -49.62px; }
+.showcase__screen--pin-b    { left: 444.73px; top: 495.36px; }
+
+/* ---------- Shared text pieces ---------- */
+
+.amount {
+  display: flex;
+  align-items: baseline;
+  gap: 2.73px;
+  margin: 2.73px 0 0;
+  font-size: 21.82px;
+  font-weight: 600;
+}
+
+.amount__currency {
+  font-size: 12.28px;
+}
+
+.amount--dark {
+  color: var(--color-dark-blue);
+}
+
+/* ---------- Top app bar ---------- */
+
+.app-bar {
+  position: absolute;
+  top: 16.37px;
+  left: 16.37px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 223.02px;
+  height: 65.47px;
+  padding: 0 16.37px;
+  border-radius: 13.64px;
+  background-color: rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(54.56px);
+}
+
+.app-bar__label {
+  margin: 0;
+  font-size: 9.55px;
+  color: var(--color-grey);
+}
+
+/* Four orange dots in a 2 × 2 grid */
+.menu-dots {
+  display: grid;
+  grid-template-columns: repeat(2, 5.46px);
+  gap: 4.09px;
+}
+
+.menu-dots span {
+  width: 5.46px;
+  height: 5.46px;
+  border-radius: 50%;
+  background-image: linear-gradient(112deg, #e85442 0%, #ffc500 100%);
+}
+
+/* ---------- Bank cards ---------- */
+
+.card-stack {
+  position: absolute;
+  left: 16.37px;
+  display: flex;
+  flex-direction: column;
+  gap: 16.37px;
+}
+
+.card-stack--home { top: 92.75px; }
+.card-stack--pin  { top: 125.49px; }
+
+.bank-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 223.02px;
+  height: 141.86px;
+  padding: 21.82px 21.82px 16.57px;
+  overflow: hidden;
+  border-radius: 10.91px;
+  color: var(--color-white);
+}
+
+.bank-card--paypal {
+  background-image: var(--gradient-purple);
+}
+
+.bank-card--mastercard {
+  /* Same gradient as orange, but turned 180° like in the design */
+  background-image: linear-gradient(302.46deg, #e85442 0%, #ffc500 100%);
+}
+
+/* Decorative light circles on top of the card colour */
+.bank-card__pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.bank-card__logo,
+.bank-card__label,
+.bank-card .amount {
+  position: relative; /* stay above the pattern */
+}
+
+.bank-card__label {
+  margin: auto 0 0;
+  font-size: 9.55px;
+}
+
+/* ---------- Bottom sheet ---------- */
+
+.sheet {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 16.37px 16.37px 0;
+  border-radius: 10.91px 10.91px 0 0;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-sheet);
+}
+
+.sheet--home   { top: 267.35px; }
+.sheet--detail { top: 92.75px; }
+
+.sheet__handle {
+  position: absolute;
+  top: 8.18px;
+  left: 117.3px;
+}
+
+.sheet__title {
+  margin: 0;
+  font-size: 16.37px;
+  font-weight: 700;
+  line-height: 1.21;
+}
+
+.sheet__title--spaced {
+  margin-top: 16.37px;
+}
+
+/* ---------- Day / Week / Month / Year tabs ---------- */
+
+.tabs {
+  position: relative;
+  display: flex;
+  gap: 8.18px;
+  margin-top: 10.91px;
+}
+
+/* White fade over the last tab, so the row looks like it scrolls */
+.tabs::after {
+  content: "";
+  position: absolute;
+  top: -8.18px;
+  left: 188.23px;
+  width: 51.15px;
+  height: 38.19px;
+  background-image: linear-gradient(to left, var(--color-white), rgba(255, 255, 255, 0));
+}
+
+.tab {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 54.56px;
+  height: 21.82px;
+  border-radius: 999px;
+  background-color: var(--color-surface);
+  color: var(--color-grey);
+  font-size: 9.55px;
+  font-weight: 500;
+}
+
+/* The active tab has a gradient pill (::after) with a soft coloured glow (::before) under it */
+.tab--active {
+  position: relative;
+  isolation: isolate;
+  background: none;
+  box-shadow: var(--shadow-soft);
+  color: var(--color-white);
+}
+
+.tab--active::before,
+.tab--active::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+}
+
+.tab--active::before {
+  z-index: -2;
+  top: 8.19px;
+  left: 10.91px;
+  width: 32.74px;
+  height: 16.37px;
+  filter: blur(4.09px);
+  opacity: 0.24;
+}
+
+.tab--active::after {
+  z-index: -1;
+  inset: 0;
+}
+
+.tabs--purple .tab--active::before {
+  background-image: linear-gradient(128.98deg, #c69dff 0%, #4f76ff 100%);
+}
+
+.tabs--purple .tab--active::after {
+  background-image: linear-gradient(135.33deg, #c69dff 0%, #4f76ff 100%);
+}
+
+.tabs--orange .tab--active::before {
+  background-image: linear-gradient(155.13deg, #fdc830 3.5%, #f37335 100%);
+}
+
+.tabs--orange .tab--active::after {
+  background-image: var(--gradient-sunset);
+}
+
+/* ---------- Chart ---------- */
+
+.chart {
+  position: relative;
+  width: 223.7px;
+  height: 120.03px;
+  margin-top: 10.91px;
+}
+
+.chart__bars {
+  display: flex;
+  gap: 5.46px;
+}
+
+.chart__bar {
+  width: 32.74px;
+  height: 120.03px;
+  opacity: 0.04;
+}
+
+.chart--purple .chart__bar {
+  background-image: linear-gradient(96.3deg, #c69dff 0%, #4f76ff 100%);
+}
+
+.chart--orange .chart__bar {
+  background-image: linear-gradient(96.3deg, #e85442 0%, #ffc500 100%);
+}
+
+.chart__line {
+  position: absolute;
+  top: 18.76px;
+  left: 0.34px;
+}
+
+.chart__dot {
+  position: absolute;
+}
+
+.chart__dot--home   { top: 40.92px; left: 89.34px; }
+.chart__dot--detail { top: 58.65px; left: 127.53px; }
+
+.chart__tooltip {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 54.56px;
+  height: 21.82px;
+  border-radius: 999px;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-soft);
+  color: var(--color-grey);
+  font-size: 9.55px;
+  font-weight: 500;
+}
+
+.chart__tooltip--home   { top: 10.91px; left: 65.47px; }
+.chart__tooltip--detail { top: 28.64px; left: 103.66px; }
+
+/* Small white block that hides the end of the line (as in the Home design) */
+.chart--masked::after {
+  content: "";
+  position: absolute;
+  top: 67.52px;
+  left: 223.7px;
+  width: 12.96px;
+  height: 15px;
+  background-color: var(--color-white);
+}
+
+.chart-labels {
+  display: flex;
+  gap: 5.46px;
+  margin-top: 8.19px;
+}
+
+.chart-labels span {
+  width: 32.74px;
+  color: var(--color-grey);
+  font-size: 9.55px;
+  font-weight: 500;
+  line-height: 1.21;
+  text-align: center;
+}
+
+/* ---------- Spending ---------- */
+
+.spend-peek,
+.spend-grid {
+  display: flex;
+  gap: 10.91px;
+  margin-top: 8.18px;
+  padding-left: 0.68px;
+}
+
+/* Tops of two cards that continue below the screen edge */
+.spend-peek span {
+  width: 105.71px;
+  height: 22.51px;
+  border-radius: 6.82px 6.82px 0 0;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-soft);
+}
+
+.spend-grid__column {
+  display: flex;
+  flex-direction: column;
+  gap: 10.91px;
+  width: 105.71px;
+}
+
+.spend-card {
+  border-radius: 6.82px;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-soft);
+}
+
+.spend-card--big {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 99.57px;
+  padding: 16.37px 10.91px 10.92px;
+}
+
+.spend-card__text {
+  margin-top: auto;
+}
+
+.spend-card--small {
+  display: flex;
+  align-items: center;
+  gap: 9.55px;
+  height: 60.02px;
+  padding: 0 10.91px;
+}
+
+.spend-card--peek {
+  height: 15.69px;
+  border-radius: 6.82px 6.82px 0 0;
+}
+
+.spend-card__logo--netflix {
+  margin-left: 4.1px;
+}
+
+.spend-card__percent {
+  margin: 0;
+  font-size: 10.91px;
+  font-weight: 700;
+  line-height: 1.21;
+}
+
+.spend-card__name {
+  margin: 4.1px 0 0;
+  color: var(--color-grey);
+  font-size: 9.55px;
+  font-weight: 500;
+  line-height: 1.21;
+  white-space: nowrap;
+}
+
+/* ---------- PIN screen ---------- */
+
+.sheet--pin {
+  top: 141.86px;
+  padding-top: 76.38px;
+  text-align: center;
+}
+
+.pin__hint {
+  margin: 5.46px 0 0;
+  color: var(--color-grey);
+  font-size: 9.55px;
+  line-height: 1.21;
+}
+
+.pin-digits {
+  display: flex;
+  gap: 10.91px;
+  margin-top: 24.55px;
+}
+
+.pin-digit {
+  display: grid;
+  place-items: center;
+  width: 47.74px;
+  height: 47.74px;
+  border-radius: 6.82px;
+  background-color: var(--color-surface);
+  font-size: 27.28px;
+  font-weight: 700;
+}
+
+/* Text filled with the purple gradient */
+.pin-digit__value {
+  background-image: linear-gradient(103deg, #c69dff 0%, #4f76ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Active box: light purple border (::after) with a soft glow (::before) under it */
+.pin-digit--active {
+  position: relative;
+  isolation: isolate;
+  background: none;
+}
+
+.pin-digit--active::before,
+.pin-digit--active::after {
+  content: "";
+  position: absolute;
+  border-radius: 6.82px;
+}
+
+.pin-digit--active::before {
+  z-index: -2;
+  top: 25.92px;
+  left: 10.23px;
+  width: 27.28px;
+  height: 27.28px;
+  background-image: linear-gradient(112deg, #c69dff 0%, #4f76ff 100%);
+  filter: blur(10.91px);
+  opacity: 0.24;
+}
+
+.pin-digit--active::after {
+  z-index: -1;
+  inset: 0;
+  border: 0.68px solid #c69dff;
+  background-color: var(--color-white);
+  opacity: 0.64;
+}
+
+.pin__forgot {
+  display: grid;
+  place-items: center;
+  width: 109.12px;
+  height: 38.19px;
+  margin: 160.95px auto 0;
+  border: 0.68px solid var(--color-grey-light);
+  border-radius: 999px;
+  background-color: var(--color-white);
+  color: var(--color-grey);
+  font-size: 10.91px;
+  font-weight: 500;
+}
+
+/* White tab with the lock icon, sticking out above the sheet */
+.lock-tab {
+  position: absolute;
+  top: 109.12px;
+  left: 100.94px;
+  width: 54.56px;
+  height: 87.3px;
+  padding: 43.65px 0 0 10.91px;
+  border-radius: 6.82px 6.82px 13.64px 13.64px;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-soft);
+}
+
+.lock-icon {
+  position: relative;
+  display: block;
+  width: 32.74px;
+  height: 32.74px;
+  border-radius: 50%;
+  background-image: linear-gradient(112deg, #e85442 0%, #ffc500 100%);
+}
+
+/* Two copies of the lock: a solid one and a faded one, tilted in opposite directions */
+.lock-icon img {
+  position: absolute;
+  top: 7.93px;
+}
+
+.lock-icon__front {
+  left: 7.18px;
+  transform: rotate(14.09deg);
+}
+
+.lock-icon__back {
+  left: 12.77px;
+  opacity: 0.24;
+  transform: rotate(-14.09deg);
+}

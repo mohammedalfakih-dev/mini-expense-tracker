@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="cover">
+      <!-- Intro text, converted from the Figma "Text" frame (node 1:1631) -->
+      <header class="intro">
+        <h1 class="intro__title">Expense <br />Tracker App <br />UI Kit</h1>
+        <p class="intro__description">
+          2+ Screens of organized layer and group of Expensive Tracker Application.
+        </p>
+      </header>
+
+      <!--
+        App screen previews, converted from the Figma "Screen" frame (node 1:1036).
+        It is one illustration, so screen readers get a single description
+        instead of reading every label inside the mock-up phones.
+      -->
+      <div
+        class="showcase"
+        role="img"
+        aria-label="Preview of the app: the Home, Card Detail and PIN screens"
+      >
+        <!-- ========== Card Detail (top) ========== -->
+        <div class="screen showcase__screen showcase__screen--detail-a">
+          <div class="app-bar">
+            <div>
+              <p class="app-bar__label">Total Balance</p>
+              <p class="amount amount--dark"><span class="amount__currency">¥</span>459.22</p>
+            </div>
+            <span class="menu-dots"><span></span><span></span><span></span><span></span></span>
+          </div>
+
+          <section class="sheet sheet--detail">
+            <img class="sheet__handle" src="assets/screens/sheet-handle.svg" alt="" width="21.8241" height="2.72802" />
+            <h2 class="sheet__title">Statistic</h2>
+            <div class="tabs tabs--orange">
+              <span class="tab tab--active">Day</span>
+              <span class="tab">Week</span>
+              <span class="tab">Month</span>
+              <span class="tab">Year</span>
+            </div>
+            <div class="chart chart--orange">
+              <div class="chart__bars">
+                <span class="chart__bar"></span>
+                <span class="chart__bar"></span>
+                <span class="chart__bar"></span>
+                <img src="assets/screens/bar-active-orange.svg" alt="" width="32.7362" height="120.033" />
+                <span class="chart__bar"></span>
+                <span class="chart__bar"></span>
+              </div>
+              <img class="chart__line" src="assets/screens/chart-line-orange.svg" alt="" width="232.564" height="59.3353" />
+              <img class="chart__dot chart__dot--detail" src="assets/screens/chart-dot-orange.svg" alt="" width="6.82004" height="6.82004" />
+              <span class="chart__tooltip chart__tooltip--detail">¥3.11</span>
+            </div>
+            <div class="chart-labels">
+              <span>09:00</span><span>12:00</span><span>15:00</span><span>18:00</span><span>21:00</span><span>00:00</span>
+            </div>
+
+            <h2 class="sheet__title sheet__title--spaced">Spend</h2>
+            <div class="spend-grid">
+              <div class="spend-grid__column">
+                <div class="spend-card spend-card--big">
+                  <img src="assets/screens/logo-playstation.svg" alt="" width="28.6442" height="21.8241" />
+                  <div class="spend-card__text">
+                    <p class="spend-card__percent">23%</p>
+                    <p class="spend-card__name">Playstation store</p>
+                  </div>
+                </div>
+                <div class="spend-card spend-card--small">
+                  <img src="assets/screens/logo-starbucks.svg" alt="" width="27.2802" height="27.2802" />
+                  <div>
+                    <p class="spend-card__percent">12%</p>
+                    <p class="spend-card__name">Coffee</p>
+                  </div>
+                </div>
+                <div class="spend-card spend-card--peek"></div>
+              </div>
+              <div class="spend-grid__column">
+                <div class="spend-card spend-card--small">
+                  <img class="spend-card__logo--netflix" src="assets/screens/logo-netflix.svg" alt="" width="15.5531" height="27.1613" />
+                  <div>
+                    <p class="spend-card__percent">16%</p>
+                    <p class="spend-card__name">Netflix</p>
+                  </div>
+                </div>
+                <div class="spend-card spend-card--big">
+                  <img src="assets/screens/logo-spotify.svg" alt="" width="27.2802" height="27.2802" />
+                  <div class="spend-card__text">
+                    <p class="spend-card__percent">32%</p>
+                    <p class="spend-card__name">Spotify Premium</p>
+                  </div>
+                </div>
+                <div class="spend-card spend-card--peek"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ========== Card Detail (bottom, mostly cut off) ========== -->
+        <div class="screen showcase__screen showcase__screen--detail-b">
+          <div class="app-bar">
+            <div>
+              <p class="app-bar__label">Total Balance</p>
+              <p class="amount amount--dark"><span class="amount__currency">¥</span>459.22</p>
+            </div>
+            <span class="menu-dots"><span></span><span></span><span></span><span></span></span>
+          </div>
+
+          <section class="sheet sheet--detail">
+            <img class="sheet__handle" src="assets/screens/sheet-handle.svg" alt="" width="21.8241" height="2.72802" />
+            <h2 class="sheet__title">Statistic</h2>
+            <div class="tabs tabs--orange">
+              <span class="tab tab--active">Day</span>
+              <span class="tab">Week</span>
+              <span class="tab">Month</span>
+              <span class="tab">Year</span>
+            </div>
+            <div class="chart chart--orange">
+              <div class="chart__bars">
+                <span class="chart__bar"></span>
+                <span class="chart__bar"></span>
+                <span class="chart__bar"></span>
+                <img src="assets/screens/bar-active-orange.svg" alt="" width="32.7362" height="120.033" />
+                <span class="chart__bar"></span>
+                <span class="chart__bar"></span>
+              </div>
+              <img class="chart__line" src="assets/screens/chart-line-orange.svg" alt="" width="232.564" height="59.3353" />
+              <img class="chart__dot chart__dot--detail" src="assets/screens/chart-dot-orange.svg" alt="" width="6.82004" height="6.82004" />
+              <span class="chart__tooltip chart__tooltip--detail">¥3.11</span>
+            </div>
+            <div class="chart-labels">
+              <span>09:00</span><span>12:00</span><span>15:00</span><span>18:00</span><span>21:00</span><span>00:00</span>
+            </div>
+          </section>
+        </div>
+
+        <!-- ========== Home (top) ========== -->
+        <div class="screen showcase__screen showcase__screen--home-a">
+          <div class="app-bar">
+            <div>
+              <p class="app-bar__label">Total Balance</p>
+              <p class="amount amount--dark"><span class="amount__currency">¥</span>459.22</p>
+            </div>
+            <span class="menu-dots"><span></span><span></span><span></span><span></span></span>
+          </div>
+
+          <div class="card-stack card-stack--home">
+            <div class="bank-card bank-card--paypal">
+              <img class="bank-card__pattern" src="assets/screens/siluet-paypal.svg" alt="" width="223.015" height="141.857" />
+              <img class="bank-card__logo" src="assets/screens/logo-paypal.svg" alt="" width="62.0624" height="16.3681" />
+              <p class="bank-card__label">Balance</p>
+              <p class="amount"><span class="amount__currency">¥</span>338.34</p>
+            </div>
+            <div class="bank-card bank-card--mastercard">
+              <img class="bank-card__pattern" src="assets/screens/siluet-mastercard.svg" alt="" width="223.015" height="141.857" />
+            </div>
+          </div>
+
+          <section class="sheet sheet--home">
+            <img class="sheet__handle" src="assets/screens/sheet-handle.svg" alt="" width="21.8241" height="2.72802" />
+            <h2 class="sheet__title">All Statistic</h2>
+            <div class="tabs tabs--purple">
+              <span class="tab tab--active">Day</span>
+              <span class="tab">Week</span>
+              <span class="tab">Month</span>
+              <span class="tab">Year</span>
+            </div>
+            <div class="chart chart--purple chart--masked">
+              <div class="chart__bars">
+                <span class="chart__bar"></span>
+                <span class="chart__bar"></span>
+                <img src="assets/screens/bar-active-purple.svg" alt="" width="32.7362" height="120.033" />
+                <span class="chart__bar"></span>
+                <span class="chart__bar"></span>
+                <span class="chart__bar"></span>
+              </div>
+              <img class="chart__line" src="assets/screens/chart-line-purple.svg" alt="" width="232.564" height="59.3354" />
+              <img class="chart__dot chart__dot--home" src="assets/screens/chart-dot-purple.svg" alt="" width="6.82004" height="6.82004" />
+              <span class="chart__tooltip chart__tooltip--home">¥15.23</span>
+            </div>
+            <div class="chart-labels">
+              <span>09:00</span><span>12:00</span><span>15:00</span><span>18:00</span><span>21:00</span><span>00:00</span>
+            </div>
+
+            <h2 class="sheet__title sheet__title--spaced">All Spend</h2>
+            <div class="spend-peek"><span></span><span></span></div>
+          </section>
+        </div>
+
+        <!-- ========== Home (bottom right, mostly cut off) ========== -->
+        <div class="screen showcase__screen showcase__screen--home-b">
+          <div class="app-bar">
+            <div>
+              <p class="app-bar__label">Total Balance</p>
+              <p class="amount amount--dark"><span class="amount__currency">¥</span>459.22</p>
+            </div>
+            <span class="menu-dots"><span></span><span></span><span></span><span></span></span>
+          </div>
+
+          <div class="card-stack card-stack--home">
+            <div class="bank-card bank-card--paypal">
+              <img class="bank-card__pattern" src="assets/screens/siluet-paypal.svg" alt="" width="223.015" height="141.857" />
+              <img class="bank-card__logo" src="assets/screens/logo-paypal.svg" alt="" width="62.0624" height="16.3681" />
+              <p class="bank-card__label">Balance</p>
+              <p class="amount"><span class="amount__currency">¥</span>338.34</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== PIN (top right) ========== -->
+        <div class="screen screen--flat showcase__screen showcase__screen--pin-a">
+          <div class="app-bar">
+            <div>
+              <p class="app-bar__label">Total Balance</p>
+              <p class="amount amount--dark"><span class="amount__currency">¥</span>459.22</p>
+            </div>
+            <span class="menu-dots"><span></span><span></span><span></span><span></span></span>
+          </div>
+
+          <div class="card-stack card-stack--pin">
+            <div class="bank-card bank-card--paypal">
+              <img class="bank-card__pattern" src="assets/screens/siluet-paypal.svg" alt="" width="223.015" height="141.857" />
+            </div>
+          </div>
+
+          <section class="sheet sheet--pin">
+            <h2 class="sheet__title">PIN</h2>
+            <p class="pin__hint">Pay attention around when entering PIN</p>
+            <div class="pin-digits">
+              <span class="pin-digit"><span class="pin-digit__value">8</span></span>
+              <span class="pin-digit"><span class="pin-digit__value">0</span></span>
+              <span class="pin-digit pin-digit--active"><span class="pin-digit__value">1</span></span>
+              <span class="pin-digit"></span>
+            </div>
+            <span class="pin__forgot">I Forgot the PIN</span>
+          </section>
+
+          <div class="lock-tab">
+            <span class="lock-icon">
+              <img class="lock-icon__front" src="assets/screens/lock.svg" alt="" width="12.7807" height="16.8718" />
+              <img class="lock-icon__back" src="assets/screens/lock.svg" alt="" width="12.7807" height="16.8718" />
+            </span>
+          </div>
+        </div>
+
+        <!-- ========== PIN (bottom middle, mostly cut off) ========== -->
+        <div class="screen screen--flat showcase__screen showcase__screen--pin-b">
+          <div class="app-bar">
+            <div>
+              <p class="app-bar__label">Total Balance</p>
+              <p class="amount amount--dark"><span class="amount__currency">¥</span>459.22</p>
+            </div>
+            <span class="menu-dots"><span></span><span></span><span></span><span></span></span>
+          </div>
+
+          <div class="card-stack card-stack--pin">
+            <div class="bank-card bank-card--paypal">
+              <img class="bank-card__pattern" src="assets/screens/siluet-paypal.svg" alt="" width="223.015" height="141.857" />
+            </div>
+          </div>
+
+          <section class="sheet sheet--pin">
+            <h2 class="sheet__title">PIN</h2>
+            <p class="pin__hint">Pay attention around when entering PIN</p>
+          </section>
+
+          <div class="lock-tab">
+            <span class="lock-icon">
+              <img class="lock-icon__front" src="assets/screens/lock.svg" alt="" width="12.7807" height="16.8718" />
+              <img class="lock-icon__back" src="assets/screens/lock.svg" alt="" width="12.7807" height="16.8718" />
+            </span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

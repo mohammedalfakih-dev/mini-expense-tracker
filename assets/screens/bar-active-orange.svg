@@ -1,0 +1,16 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="32.7362" height="120.033" viewBox="0 0 32.7362 120.033" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Bar / Active">
+<rect id="Bar / Active_2" opacity="0.16" width="32.7362" height="120.033" fill="url(#paint0_linear_0_5)"/>
+<line id="Line" x1="5.63694e-05" y1="118.669" x2="32.7362" y2="118.669" stroke-width="2.72802" stroke="url(#paint1_linear_0_5)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_5" x1="0" y1="0" x2="45.4283" y2="5.01286" gradientUnits="userSpaceOnUse">
+<stop stop-color="#E85442"/>
+<stop offset="1" stop-color="#FFC500"/>
+</linearGradient>
+<linearGradient id="paint1_linear_0_5" x1="2.38707" y1="120.033" x2="2.43969" y2="121.891" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FDC830"/>
+<stop offset="1" stop-color="#F37335"/>
+</linearGradient>
+</defs>
+</svg>
